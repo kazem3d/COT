@@ -25,6 +25,7 @@ class CotData (models.Model):
     short_change=models.IntegerField()
     long_percent=models.IntegerField()
     short_percent=models.IntegerField()
+    slug=models.SlugField(unique=False)
 
     class Meta:
             verbose_name = 'cot data'

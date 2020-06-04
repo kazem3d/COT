@@ -1,0 +1,50 @@
+{% extends 'web/_base.html' %}
+{% load humanize %}
+
+{% block tabel %}
+
+<div class="container">
+  <table class="table table-striped table-bordered  ">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">currency</th>
+        <th scope="col">date</th>
+        <th scope="col">long</th>
+        <th scope="col">short</th>
+        <th scope="col">long change</th>
+        <th scope="col">short change</th>
+        <th scope="col">% long</th>
+        <th scope="col">% short</th>
+        <th scope="col">net positions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        {% for data in object_list %}
+
+            <tr >
+                <td>{{data.name}}</td>
+                <td>{{data.date}}</td>
+                <td>{{data.long|intcomma}}</td>
+                <td>{{data.short|intcomma}}</td>
+                <td>{{data.long_change|intcomma}}</td>
+                <td>{{data.short_change|intcomma}}</td>
+                <td>{{data.long_percent}}</td>
+                <td>{{data.short_percent}}</td>
+                <td>{{data.net_positions|intcomma}}</td>
+
+            </tr>
+
+        {% empty %}
+            <li>No data yet.</li>
+
+        {%endfor%}
+
+
+        </tbody>
+    <caption>COT</caption>
+
+  </table>
+</div>
+
+{% endblock tabel %}

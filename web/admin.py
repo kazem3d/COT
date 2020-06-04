@@ -7,6 +7,7 @@ class CotDataAdmin(admin.ModelAdmin):
                     'short_change','long_percent','short_percent','net_positions')
     list_filter = ('name',)
     ordering = ['date']
+    prepopulated_fields = {'slug': ('name',), }
 
 admin.site.register(Currency)
 admin.site.register(CotData,CotDataAdmin)
