@@ -4,6 +4,9 @@ from django.db import models
 
 class Currency(models.Model):
     name=models.CharField(max_length=3)
+    slug=models.SlugField(unique=False)
+
+
 
     class Meta:
             verbose_name = 'currency'
@@ -25,7 +28,7 @@ class CotData (models.Model):
     short_change=models.IntegerField()
     long_percent=models.IntegerField()
     short_percent=models.IntegerField()
-    slug=models.SlugField(unique=False)
+    # slug=models.SlugField(unique=False)
 
     class Meta:
             verbose_name = 'cot data'
