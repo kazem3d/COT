@@ -25,7 +25,7 @@ SECRET_KEY = 'f%psamw5f*g&%nqrjp&sbdp)u@2c+q#+bc2fo@h@&w!r&i=f_g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cot-kazem3d.fandogh.cloud','127.0.0.1']
 
 
 # Application definition
@@ -120,3 +120,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT=os.path.join(BASE_DIR, 'static')
