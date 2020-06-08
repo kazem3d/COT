@@ -26,8 +26,8 @@ class CotData (models.Model):
     short=models.IntegerField()
     long_change=models.IntegerField()
     short_change=models.IntegerField()
-    long_percent=models.IntegerField()
-    short_percent=models.IntegerField()
+    long_percent=models.FloatField()
+    short_percent=models.FloatField()
     # slug=models.SlugField(unique=False)
 
     class Meta:

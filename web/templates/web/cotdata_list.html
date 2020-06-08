@@ -1,11 +1,31 @@
 {% extends 'web/_base.html' %}
 {% load humanize %}
 
+
+{% block dropbox %}
+  <div style='margin:30px; text-align: center; !important;'>
+    <div class="dropdown show "  >
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Choose currency
+      </a>
+
+      <div class="dropdown-menu" style=' text-align: center;' aria-labelledby="dropdownMenuLink">
+        {% for pair in pairs %}
+
+            <a class="dropdown-item" href='/{{pair.slug}}/' %}>{{pair.name}}</a>
+          
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endblock dropbox %}
+
 {% block tabel %}
 
-<div class="container">
+<div class="container" style=' text-align: center;'>
   <table class="table table-striped table-bordered  ">
-    <thead class="thead-light">
+    <thead class="thead-dark">
       <tr>
         <th scope="col">currency</th>
         <th scope="col">date</th>
@@ -24,7 +44,7 @@
 
             <tr >
                 <td>{{data.name}}</td>
-                <td>{{data.date}}</td>
+                <td>{{data.date|date:"SHORT_DATE_FORMAT"}}</td>
                 <td>{{data.long|intcomma}}</td>
                 <td>{{data.short|intcomma}}</td>
                 <td>{{data.long_change|intcomma}}</td>
@@ -48,3 +68,9 @@
 </div>
 
 {% endblock tabel %}
+
+
+
+    
+
+           

@@ -24,7 +24,7 @@
 {% block tabel %}
 
 <div class="container" style=' text-align: center;'>
-  <table class="table table-striped table-bordered  ">
+  <table class="table table-sm table-striped table-responsive-sm table-bordered  ">
     <thead class="thead-dark">
       <tr>
         <th scope="col">currency</th>
@@ -44,7 +44,7 @@
 
             <tr >
                 <td>{{data.name}}</td>
-                <td>{{data.date}}</td>
+                <td>{{data.date|date:"SHORT_DATE_FORMAT"}}</td>
                 <td>{{data.long|intcomma}}</td>
                 <td>{{data.short|intcomma}}</td>
                 <td>{{data.long_change|intcomma}}</td>
