@@ -25,8 +25,8 @@ SECRET_KEY = 'f%psamw5f*g&%nqrjp&sbdp)u@2c+q#+bc2fo@h@&w!r&i=f_g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['cot-kazem3d.fandogh.cloud']
-# ALLOWED_HOSTS = ['cot-kazem3d.fandogh.cloud','127.0.0.1']
+# ALLOWED_HOSTS = ['cot-kazem3d.fandogh.cloud']
+ALLOWED_HOSTS = ['cot-kazem3d.fandogh.cloud','127.0.0.1']
 
 
 
