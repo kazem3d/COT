@@ -12,14 +12,27 @@ from django.contrib.auth.decorators import login_required
 
 def CotListView(request):
 
+    
 
     currency=CotData.objects.filter(name__name='USD')
     pairs=Currency.objects.all()
-  
+
+    labels = []
+    data = []
+    for i in currency:
+        labels.append(i.str_date())
+        data.append(i.net_positions())
+
+    labels=labels[::-1]
+    data=data[::-1]
 
     context={
         'currency':currency,
         'pairs':pairs,
+        'labels': labels,
+        'data': data,
+  
+
     }
     return render(request,'web/currency.html',context)
 
@@ -31,9 +44,21 @@ def currency_list(request,slug):
     pairs=Currency.objects.all()
     currency=get_list_or_404(CotData,name__name=slug)
 
+    labels = []
+    data = []
+    for i in currency:
+        labels.append(i.str_date())
+        data.append(i.net_positions())
+
+    labels=labels[::-1]
+    data=data[::-1]
+
+
     context={
         'currency':currency,
         'pairs':pairs,
+        'labels': labels,
+        'data': data,
     }
     return render(request,'web/currency.html',context)
     

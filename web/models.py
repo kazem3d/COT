@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 
@@ -36,6 +37,9 @@ class CotData (models.Model):
 
     def net_positions(self):
         return self.long - self.short
+
+    def str_date(self):
+        return self.date.strftime('%m/%d/%Y')
 
     def __str__(self):
         return '{}    {}'.format(self.name,self.date)

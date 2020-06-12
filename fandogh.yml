@@ -3,6 +3,7 @@ name: cot
 spec:
   image_pull_policy: Always
   port: 80
+  allow_http: False
   source:
     context: .
     media_path: ''
@@ -10,3 +11,8 @@ spec:
     python_version: '3.7'
     static_path: '"'
     wsgi: config.wsgi
+
+  domains:
+    - name: kazem3d.ir
+  
+

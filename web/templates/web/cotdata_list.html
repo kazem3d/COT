@@ -70,6 +70,45 @@
 {% endblock tabel %}
 
 
+ {% block chart %}
+
+  <div id="container"  >
+    <canvas id="myChart"  style="margin:50px;"></canvas>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{labels|safe}},
+        datasets: [{
+            label: 'Net positions',
+            data: {{data|safe}},
+            borderWidth: 6
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+        layout: {
+              padding: {
+                  left: 500,
+                  right: 500,
+                  top: 500,
+                  bottom: 500
+              }
+        }
+    }
+});
+</script>
+ 
+  {% endblock chart %}
 
     
 
