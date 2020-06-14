@@ -25,12 +25,13 @@ def CotListView(request):
 
     labels=labels[::-1]
     data=data[::-1]
-
+    
     context={
         'currency':currency,
         'pairs':pairs,
         'labels': labels,
         'data': data,
+        'currency_name' : [' Net position of : USD'],
   
 
     }
@@ -52,13 +53,13 @@ def currency_list(request,slug):
 
     labels=labels[::-1]
     data=data[::-1]
-
-
+   
     context={
         'currency':currency,
         'pairs':pairs,
         'labels': labels,
         'data': data,
+        'currency_name' :[slug]
     }
     return render(request,'web/currency.html',context)
     

@@ -1,5 +1,7 @@
 {% extends 'web/_base.html' %}
+{% load static %}
 {% load humanize %}
+
 
 
 {% block dropbox %}
@@ -71,7 +73,7 @@
 
  {% block chart %}
 
- <div id="container" style="height: 10% , width:20% ;">
+ <div class="chart1" >
     <canvas id="myChart" ></canvas>
   </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
@@ -82,12 +84,18 @@ var myChart = new Chart(ctx, {
     data: {
         labels: {{labels|safe}},
         datasets: [{
-            label: 'Net positions',
+            label: {{currency_name|safe}},
             data: {{data|safe}},
-            borderWidth: 6
+            borderColor: "#3e95cd",
+            backgroundColor: "#e8c3b9",
+            borderWidth: 2
         }]
     },
     options: {
+        title: {
+          display: true,
+          text: 'Net positions change'
+        },
         scales: {
             yAxes: [{
                 ticks: {
