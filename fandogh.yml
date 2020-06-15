@@ -9,7 +9,7 @@ spec:
     media_path: ''
     project_type: django
     python_version: '3.7'
-    static_path: '"'
+    static_path: 'static'
     wsgi: config.wsgi
 
   domains:

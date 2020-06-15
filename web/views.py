@@ -19,18 +19,27 @@ def CotListView(request):
 
     labels = []
     data = []
+    long_change=[]
+    short_change=[]
     for i in currency:
         labels.append(i.str_date())
         data.append(i.net_positions())
+        long_change.append(i.long_change)
+        short_change.append(i.short_change)
+
 
     labels=labels[::-1]
     data=data[::-1]
+    long_change=long_change[::-1]
+    short_change=short_change[::-1]
     
     context={
         'currency':currency,
         'pairs':pairs,
         'labels': labels,
         'data': data,
+        'long_change':long_change,
+        'short_change':short_change,
         'currency_name' : [' Net position of : USD'],
   
 
@@ -47,18 +56,27 @@ def currency_list(request,slug):
 
     labels = []
     data = []
+    long_change=[]
+    short_change=[]
+        
     for i in currency:
         labels.append(i.str_date())
         data.append(i.net_positions())
+        long_change.append(i.long_change)
+        short_change.append(i.short_change)
 
     labels=labels[::-1]
     data=data[::-1]
-   
+    long_change=long_change[::-1]
+    short_change=short_change[::-1]
+
     context={
         'currency':currency,
         'pairs':pairs,
         'labels': labels,
         'data': data,
+        'long_change':long_change,
+        'short_change':short_change,
         'currency_name' :[slug]
     }
     return render(request,'web/currency.html',context)

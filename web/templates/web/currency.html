@@ -71,7 +71,7 @@
 
 {% endblock tabel %}
 
- {% block chart %}
+ {% block chart1 %}
 
  <div class="chart1" >
     <canvas id="myChart" ></canvas>
@@ -107,4 +107,40 @@ var myChart = new Chart(ctx, {
 });
 </script>
  
-  {% endblock chart %}
+  {% endblock chart1 %}
+
+{% block chart2 %} 
+
+ <div class="chart1" >
+    <canvas id="bar-chart" ></canvas>
+  </div>
+<script>
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: {{labels|safe}},
+      datasets: [
+        {
+          label: "long change",
+          backgroundColor: "#6ACA22",
+          data: {{long_change|safe}}
+        },
+
+{
+          label: "short change",
+          backgroundColor: "#FF154E",
+          data: {{short_change|safe}}
+        }
+      ]
+    },
+    options: {
+      legend: { display: true },
+      title: {
+        display: true,
+        text: 'Change in long and short positions'
+      }
+    }
+})
+
+</script>
+{% endblock chart2 %}
