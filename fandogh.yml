@@ -6,7 +6,7 @@ spec:
   allow_http: False
   source:
     context: .
-    media_path: ''
+    media_path: 'media'
     project_type: django
     python_version: '3.7'
     static_path: 'static'
