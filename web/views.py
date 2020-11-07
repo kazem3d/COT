@@ -13,6 +13,10 @@ from django.core.files.storage import FileSystemStorage
     # model = CotData
     # queryset=CotData.objects.filter(name__name='USD')
 
+
+def HomePage(request):
+    return  render(request,'web/home.html',)
+
 def CotListView(request):
 
     currency=CotData.objects.filter(name__name='USD').order_by('-date')[:15]
